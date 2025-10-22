@@ -56,6 +56,7 @@ Describe any environment variables, config files, or settings required for your 
 | `EMAIL_USER`       | Gmail email user used for sending email                  | Yes
 | `EMAIL_PASS`       | Above enail user gmail app password                      | Yes
 | `TO_EMAILS`        | Comma separted list of emails to whom email will be sent | Yes
+| `PROJECT_ROOT_DIR`        | Absolute path of project root directory                  | Yes
 
 **Optional:** instructions for creating a `.env` or config file:
 ```bash
@@ -63,6 +64,7 @@ Describe any environment variables, config files, or settings required for your 
 EMAIL_USER=abc@gmail.com
 EMAIL_PASS="abc xyz ijl mno"
 TO_EMAILS="pqr@gmail.com, utv@gmail.com"
+PROJECT_ROOT_DIR="/<Absolute-Path>/PyJokes"
 ```
 
 ## 📬 Contact
