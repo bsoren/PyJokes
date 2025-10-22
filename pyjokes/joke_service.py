@@ -15,6 +15,7 @@ class JokeService:
         self.__to_emails = os.getenv("TO_EMAILS")
         self.__bcc_emails = os.getenv("BCC_EMAILS")
         self.__cc_emails = os.getenv("CC_EMAILS")
+        self.project_root_dir = os.getenv("PROJECT_ROOT_DIR")
         self.__joke_api = "https://official-joke-api.appspot.com/jokes/random"
         self.__email_service = EmailService()
 
@@ -29,7 +30,7 @@ class JokeService:
         return datetime.now().strftime("%dth %b %Y at %H:%M:%S %p")
 
     def build_email_message(self, joke_dict):
-        template = Template(Path("joke_template.html").read_text())
+        template = Template((Path(self.project_root_dir) / Path("pyjokes") / Path("joke_template.html")).read_text())
         body = template.substitute({"setup": joke_dict['setup'], "punchline": joke_dict['punchline']})
 
         message = MIMEMultipart()
@@ -47,3 +48,8 @@ class JokeService:
         joke = self.fetch_joke()
         message = self.build_email_message(joke)
         self.__email_service.send_email(message)
+
+if __name__ == "__main__":
+    js = JokeService()
+    template_path = (Path(js.project_root_dir) / Path("pyjokes") / Path("joke_template.html")).read_text()
+    print(template_path)
