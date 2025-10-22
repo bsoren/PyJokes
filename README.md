@@ -1,5 +1,5 @@
-# 📦 Project Name
-*A short one-line description of your project.*
+# 📦 PyJokes
+*Python-based utility for sending jokes in email*
 
 ---
 
